@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls.Xaml;
 using XF.Material.Maui.UI.Dialogs.Configurations;
+using Microsoft.Maui.Devices;
 
 namespace XF.Material.Maui.UI.Dialogs
 {

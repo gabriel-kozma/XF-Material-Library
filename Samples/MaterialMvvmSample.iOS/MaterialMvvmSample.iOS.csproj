@@ -1,52 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFrameworks>net6.0-ios</TargetFrameworks>
-
-		<OutputType>Exe</OutputType>
-		<RootNamespace>MaterialMvvmSample.iOS</RootNamespace>
-		<UseMaui>true</UseMaui>
-		<ImplicitUsings>enable</ImplicitUsings>
-
-		<!-- Display name -->
-		<ApplicationTitle>MaterialMvvmSample.iOS</ApplicationTitle>
-
-		<!-- App Identifier -->
-		<ApplicationIdGuid>29B9C6EF-D2F1-45C2-A8C1-401B034BB2D6</ApplicationIdGuid>
-
-		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
-		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-
-		<!-- Custom Fonts -->
-		<MauiFont Include="Resources\Fonts\*" />
-
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-ios</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MaterialMvvmSample.iOS</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Display name -->
+    <ApplicationTitle>MaterialMvvmSample.iOS</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationIdGuid>29B9C6EF-D2F1-45C2-A8C1-401B034BB2D6</ApplicationIdGuid>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="6.0.1" />
     <PackageReference Include="Mopups" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\XF.Material\XF.Material.csproj" />
     <ProjectReference Include="..\MaterialMvvmSample.Core\MaterialMvvmSample.Core.csproj" />
     <ProjectReference Include="..\MaterialMvvmSample\MaterialMvvmSample.csproj" />
   </ItemGroup>
-
 </Project>

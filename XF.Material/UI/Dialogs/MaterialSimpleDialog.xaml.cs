@@ -7,6 +7,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls.Xaml;
 using XF.Material.Maui.UI.Dialogs.Configurations;
 using XF.Material.Maui.UI.Dialogs.Internals;
+using Microsoft.Maui.Devices;
 
 namespace XF.Material.Maui.UI.Dialogs
 {

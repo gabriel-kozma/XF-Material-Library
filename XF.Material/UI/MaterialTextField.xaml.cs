@@ -12,6 +12,8 @@ using XF.Material.Maui.Resources;
 using XF.Material.Maui.UI.Dialogs;
 using XF.Material.Maui.UI.Internals;
 using Keyboard = Microsoft.Maui.Keyboard;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Devices;
 
 namespace XF.Material.Maui.UI
 {

@@ -7,6 +7,7 @@ using Mopups.Animations;
 using Mopups.Pages;
 using Mopups.Services;
 using Microsoft.Maui;
+using Microsoft.Maui.Devices;
 
 namespace XF.Material.Maui.UI.Dialogs
 {

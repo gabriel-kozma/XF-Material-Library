@@ -6,6 +6,7 @@ using XF.Material.Maui.UI;
 using XF.Material.iOS.Renderers;
 using Microsoft.Maui.Controls.Platform;
 using Platform = Microsoft.Maui.Controls.Compatibility.Platform.iOS.Platform;
+using Microsoft.Maui.Devices.Sensors;
 
 [assembly: ExportRenderer(typeof(MaterialMenuButton), typeof(MaterialMenuRenderer))]
 namespace XF.Material.iOS.Renderers

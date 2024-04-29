@@ -1,23 +1,19 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup Condition=" '$(TargetsToBuild)' == 'All' ">
-    <TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
-
+    <TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+    <LangVersion>11.0</LangVersion>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
-
     <OutputType>Library</OutputType>
-
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition=" '$(TargetsToBuild)' != 'All' ">
-    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Android' ">net6.0-android;</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Uap' ">net6.0-windows10.0.19041.0</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'iOS' ">net6.0-ios</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Apple' ">net6.0-ios</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Android' ">net8.0-android;</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Uap' ">net8.0-windows10.0.19041.0</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'iOS' ">net8.0-ios</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Apple' ">net8.0-ios</TargetFrameworks>
   </PropertyGroup>
-  
   <PropertyGroup>
     <AssemblyName>XF.Material</AssemblyName>
     <RootNamespace>XF.Material</RootNamespace>
@@ -25,11 +21,9 @@
     <Description>A Maui library for Maui.Android and Maui.iOS to implement Google's Material Design.</Description>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
   </PropertyGroup>
-
   <PropertyGroup Condition="$(TargetFramework.StartsWith('uap')) And '$(OS)' == 'Windows_NT'">
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Remove="Platforms\**\*.cs" />
     <None Include="Platforms\**\*.cs" />
@@ -38,34 +32,31 @@
     <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <None Include="readme.txt" pack="true" PackagePath="." />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net6.0')) ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0')) ">
     <None Remove="Platforms\Netstandard\**\*.cs" />
     <Compile Include="Platforms\Netstandard\**\*.cs" />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net6.0')) And '$(OS)' == 'Windows_NT' ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0')) And '$(OS)' == 'Windows_NT' ">
     <None Remove="Platforms\Net\**\*.cs" />
     <None Remove="Platforms\Wpf\**\*.cs" />
     <Compile Include="Platforms\Net\**\*.cs" />
     <Compile Include="Platforms\Wpf\**\*.cs" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'!='net6.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='net8.0'">
     <None Remove="Platforms\Shared\**\*.cs" />
     <Compile Include="Platforms\Shared\**\*.cs" />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net6.0-windows')) ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0-windows')) ">
     <Compile Include="Platforms\Windows\**\*.cs" />
     <Compile Include="Platforms\Uap\**\*.cs" />
     <Page Include="Platforms\Uap\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
     <None Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls" Version="7.1.2" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net6.0-ios')) ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0-ios')) ">
     <None Remove="Platforms\Apple\**\*.cs" />
     <None Remove="Platforms\Ios\**\*.cs" />
     <None Remove="Platforms\Maui\**\*.cs" />
@@ -88,7 +79,6 @@
     <BundleResource Include="Resources\*.png" />
     <BundleResource Include="Resources\*.json" />
   </ItemGroup>
-
   <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarin.tvos')) ">
     <None Remove="Platforms\Apple\**\*.cs" />
     <None Remove="Platforms\Tvos\**\*.cs" />
@@ -99,7 +89,6 @@
     <BundleResource Include="Resources\*.png" />
     <BundleResource Include="Resources\*.json" />
   </ItemGroup>
-
   <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarin.watchos')) ">
     <None Remove="Platforms\Apple\**\*.cs" />
     <None Remove="Platforms\Watchos\**\*.cs" />
@@ -110,8 +99,7 @@
     <BundleResource Include="Resources\*.png" />
     <BundleResource Include="Resources\*.json" />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net6.0-android')) ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0-android')) ">
     <None Remove="Platforms\Android\**\*.cs" />
     <None Remove="Platforms\Maui\**\*.cs" />
     <Compile Include="Platforms\Android\**\*.cs" />
@@ -119,20 +107,16 @@
     <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
     <AndroidResource Include="Resources\raw\*.json" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net6.0-tizen')) ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net8.0-tizen')) ">
     <None Remove="Platforms\Tizen\**\*.cs" />
     <None Remove="Platforms\Maui\**\*.cs" />
     <Compile Include="Platforms\Tizen\**\*.cs" />
     <Compile Include="Platforms\Maui\**\*.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Platforms\Uap\ImageSourceExtensions.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Mopups" Version="1.0.2" />
   </ItemGroup>
-
 </Project>

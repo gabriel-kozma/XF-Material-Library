@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView x:Class="XF.Material.Maui.UI.MaterialChip"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -31,7 +31,7 @@
                 <Setter Property="CornerRadius" Value="16" />
                 <Setter Property="HasShadow" Value="False" />
                 <Setter Property="HeightRequest" Value="{StaticResource Material.Chip.Height}" />
-                <Setter Property="OutlineColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="Transparent" />
                 <Setter Property="VerticalOptions" Value="Start" />
                 <Setter Property="HorizontalOptions" Value="Start" />
             </Style>

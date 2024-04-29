@@ -9,6 +9,7 @@ using Microsoft.Maui.Controls.Xaml;
 using XF.Material.Maui.Resources;
 using XF.Material.Maui.UI.Internals;
 using TypeConverterAttribute = System.ComponentModel.TypeConverterAttribute;
+using Microsoft.Maui.Devices;
 
 namespace XF.Material.Maui.UI
 {

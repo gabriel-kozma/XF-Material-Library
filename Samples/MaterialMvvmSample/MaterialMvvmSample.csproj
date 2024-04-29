@@ -1,35 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
-
+    <TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
     <UseMaui>true</UseMaui>
     <ImplicitUsings>enable</ImplicitUsings>
-
     <OutputType>Library</OutputType>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="Images\slideshow-black-18dp.svg" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="6.0.1" />
     <PackageReference Include="Mopups" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\XF.Material\XF.Material.csproj" />
   </ItemGroup>
-  
   <ItemGroup>
-     <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
   </ItemGroup>
-  
 </Project>

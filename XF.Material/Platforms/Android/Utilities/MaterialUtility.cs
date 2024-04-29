@@ -3,6 +3,7 @@ using Android.Views;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 using XF.Material.Droid.Utilities;
 using XF.Material.Maui.Utilities;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(MaterialUtility))]
 namespace XF.Material.Droid.Utilities

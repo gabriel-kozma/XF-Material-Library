@@ -8,6 +8,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls.Xaml;
 using XF.Material.Maui.Resources;
 using Keyboard = Microsoft.Maui.Keyboard;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace XF.Material.Maui.UI.Internals
 {

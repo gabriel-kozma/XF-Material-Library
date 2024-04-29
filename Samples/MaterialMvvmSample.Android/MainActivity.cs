@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using MaterialMvvmSample.Droid.Core;
 using XF.Material.Droid;
+using Microsoft.Maui;
 
 namespace MaterialMvvmSample.Droid
 {

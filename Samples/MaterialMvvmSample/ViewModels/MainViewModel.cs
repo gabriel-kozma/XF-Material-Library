@@ -6,6 +6,7 @@ using System.Windows.Input;
 using MaterialMvvmSample.Utilities.Dialogs;
 using MaterialMvvmSample.Views;
 using XF.Material.Maui.Models;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace MaterialMvvmSample.ViewModels
 {
